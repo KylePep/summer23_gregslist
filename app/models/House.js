@@ -11,12 +11,15 @@ export class House {
     this.price = data.price
     this.description = data.description
     this.imgUrl = data.imgUrl
+    this.isHaunted = data.isHaunted;
   }
 
   get CardTemplate() {
     return `
-      <div class="col-10 m-auto text-bg-primary d-flex py-3">
-        <div>
+    <div class="col-10 m-auto mb-3">
+    <section  class="row m-auto text-bg-light py-3 elevation-5">
+      <div class="d-flex">
+        <div class= "">
           <img class="houseImg"
             src="${this.imgUrl}"
             alt="${this.name}">
@@ -30,9 +33,25 @@ export class House {
           </h3>
           <p>${this.description}</p>
           <h4>Price: $${this.price}</h4>
+          <button onclick="app.HousesController.deleteHouse('${this.id}')" class="btn btn-danger">Remove Listing</button>
         </div>
       </div>
+      ${this.ComputeIsHaunted}
+    </section>
+    </div>
     `
+  }
+
+  get ComputeIsHaunted() {
+    if (this.isHaunted) {
+      return `
+      <div class="text-bg-dark text-center p-1">
+        <p class="mb-0">~~👻 Haunted 👻~~</p>
+      </div>
+      `
+    } {
+      return ``
+    }
   }
 
 }

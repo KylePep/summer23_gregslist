@@ -1,9 +1,11 @@
 import { AboutController } from "./controllers/AboutController.js";
+import { BikesController } from "./controllers/BikesController.js";
 import { CarsController } from "./controllers/CarsController.js";
 import { HomeController } from "./controllers/HomeController.js";
 import { HousesController } from "./controllers/HousesController.js";
 import { ValuesController } from "./controllers/ValuesController.js";
 import { AboutView } from "./views/AboutView.js";
+import { BikesView } from "./views/BikesView.js";
 import { CarView } from "./views/CarView.js";
 import { HouseView } from "./views/HouseView.js";
 
@@ -33,6 +35,11 @@ export const router = [
     path: '#/houses',
     controller: HousesController,
     view: HouseView
+  },
+  {
+    path: '#/bikes',
+    controller: BikesController,
+    view: BikesView
   }
 
 ]

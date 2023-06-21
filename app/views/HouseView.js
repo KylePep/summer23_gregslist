@@ -16,69 +16,68 @@ export const HouseView = /*html*/`
 
 
 
-          <form>
+          <form onsubmit="app.HousesController.createHouse(event)">
 
           <div class="mb-3">
-            <label name="imgUrl" class="form-label">image URL:</label>
-            <input type="text" class="form-control" id="imgUrl">
+            <label  class="form-label">image URL:</label>
+            <input name="imgUrl" type="text" class="form-control" id="imgUrl" required>
           </div>
 
           <div class="mb-3">
-            <label name="name" class="form-label">House Name</label>
-            <input type="text" class="form-control" id="name" aria-describedby="name">
+            <label  class="form-label">House Name</label>
+            <input name="name" type="text" class="form-control" id="name" required>
           </div>
           
 
           <div class="mb-3">
             <label for="year" class="form-label">Year</label>
-            <input type="number" class="form-control" id="year">
+            <input name="year" type="number" class="form-control" id="year" required>
           </div>
 
           <div class="mb-3">
             <label for="bedrooms" class="form-label">Bedrooms</label>
-            <input type="number" class="form-control" id="bedrooms">
+            <input name="bedrooms" type="number" class="form-control" id="bedrooms" required>
           </div>
 
           <div class="mb-3">
             <label for="bathrooms" class="form-label">Bathrooms</label>
-            <input type="number" class="form-control" id="bathrooms">
+            <input name="bathrooms" type="number" class="form-control" id="bathrooms" required>
           </div>
       
           <div class="mb-3">
             <label for="sqft" class="form-label">Sqft</label>
-            <input type="number" class="form-control" id="sqft">
+            <input name="sqft"type="number" class="form-control" id="sqft" required>
           </div>
 
           <div class="mb-3">
             <label for="price" class="form-label">Price</label>
-            <input type="number" class="form-control" id="price">
+            <input name="price" type="number" class="form-control" id="price" required>
           </div>
 
           <div class="mb-3">
             <label for="description" class="form-label">description</label>
-            <input type="text-area" class="form-control" id="description">
+            <input type="text-area" class="form-control" id="description" name= "description">
           </div>
 
 
           <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="haunted">
-            <label class="form-check-label" for="haunted">Haunted</label>
+            <input type="checkbox" class="form-check-input" id="isHuanted" name="isHaunted">
+            <label class="form-check-label" for="isHuanted">Haunted</label>
           </div>
+
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
         </form>
 
 
 
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
         </div>
       </div>
     </div>
 
-    <div class="container-fluid">
-      <section id="houseListing" class="row">
+    <div id="houseListing" class="container-fluid">
+      <section  class="row">
         <div class="col-10 m-auto text-bg-primary d-flex py-3">
           <div>
             <img class="houseImg"
